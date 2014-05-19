@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519093552) do
+ActiveRecord::Schema.define(version: 20140519104529) do
 
   create_table "item_tables", force: true do |t|
     t.string  "name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140519093552) do
     t.float   "high"
     t.float   "low"
     t.integer "volumn"
+    t.integer "item_id",    null: false
   end
 
   create_table "selections", force: true do |t|
