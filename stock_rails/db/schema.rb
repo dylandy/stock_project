@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519104529) do
+ActiveRecord::Schema.define(version: 20140520094524) do
 
   create_table "item_tables", force: true do |t|
     t.string  "name"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20140519104529) do
   create_table "users", force: true do |t|
     t.string  "account"
     t.string  "pwd"
-    t.integer "kind"
+    t.integer "kind",    limit: 1
   end
 
 end
