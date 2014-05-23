@@ -83,9 +83,39 @@ module BuildStock
       stock << t
       end
     end
-
   #目前 stock 獲得最新的所有資料，下面存入資料庫
-
+    if ItemTable.count == 0
+      (0..stock.length).each do |i|
+        item = ItemTable.new
+        item.id = i+1
+        item.ask = stock[i].ask
+        item.prev_close = stock[i].previous_close
+        item.name = stock[i].name
+        item.high = stock[i].high
+        item.low = stock[i].low
+        item.open = stock[i].open
+        item.close = stock[i].close
+        item.volume = stock[i].volume
+        item.ask = stock[i].ask
+        item.bid = stock[i].bid
+        item.item_id = stock[i].symbol
+        item.save
+      end
+    else
+      item = ItemTable.all
+      (0..stock.length).each do |i|
+        item[i].ask = stock[i].ask
+        item[i].bid = stock[i].bid
+        item[i].prev_close = stock[i].preveious_close
+        item[i].name = stock[i].name
+        item[i].high = stock[i].high
+        item[i].low = stock[i].low
+        item[i].open = stock[i].open
+        item[i].close = stock[i].close
+        item[i].volume = stock[i].volume
+        item[i].save
+      end
+    end
   end
 end
 BuildStock.go!
