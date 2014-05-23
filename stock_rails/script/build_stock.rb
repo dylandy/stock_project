@@ -1,4 +1,6 @@
+require 'rubygems'
 require 'yahoo_finance'
+require 'active_record'
 
 target_1=[]
 target_2=[]
@@ -18,15 +20,15 @@ end
 data_1 = YahooFinance.quotes(target_1,[:ask, :bid, :high, :low, :open, :close, :previous_close, :volume, :name],{raw:false})
 data_2 = YahooFinance.quotes(target_2,[:ask, :bid, :high, :low, :open, :close, :previous_close, :volume, :name],{raw:false})
 
-(0..4500).each do |t|
-  if data_1[t].ask != 0
-  stock << data_1[t]
+data_1.each do |t|
+  if t.ask != 0
+  stock << t
   end
 end
 
-(0..4360).each do |t|
-  if data_2[t].ask != 0
-  stock << data_2[t]
+data_2.each do |t|
+  if t.ask != 0
+  stock << t
   end
 end
 
@@ -46,14 +48,14 @@ end
 data_1 = YahooFinance.quotes(target_1,[:ask, :bid, :high, :low, :open, :close, :previous_close, :volume, :name],{raw:false})
 data_2 = YahooFinance.quotes(target_2,[:ask, :bid, :high, :low, :open, :close, :previous_close, :volume, :name],{raw:false})
 
-(0..4500).each do |t|
-  if data_1[t].ask != 0
-  stock << data_1[t]
+data_1.each do |t|
+  if t.ask != 0
+  stock << t
   end
 end
 
-(0..4360).each do |t|
-  if data_2[t].ask != 0
-  stock << data_2[t]
+data_2.each do |t|
+  if t.ask != 0
+  stock << t
   end
 end
