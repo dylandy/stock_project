@@ -26,47 +26,41 @@ module BuildStock
     stock_filter()
   end
   def self.stock_filter
-    target_1=[];target_2=[];data_1=[];data_2=[];stock =[]
+    target_1=[];target_2=[];target_3=[];target_4=[];data_1=[];data_2=[];data_3=[];data_4=[];stock =[]
 
     #create array for request 
-    (1101..5601).each do |t| target_1 << t.to_s+".TW";end
-    (5602..9962).each do |t| target_2 << t.to_s+".TW";end
-
+    (1101..5601).each do |t| target_1 << t.to_s+".TW";target_3 << t.to_s+".TWO";end
+    (5602..9962).each do |t| target_2 << t.to_s+".TW";target_4 << t.to_s+".TWO";end
+    puts "fetching data"
     data_1 = YahooFinance.quotes(target_1,[:ask, :bid, :high, :low, :open, :close, :previous_close, :volume, :name],{raw:false})
     data_2 = YahooFinance.quotes(target_2,[:ask, :bid, :high, :low, :open, :close, :previous_close, :volume, :name],{raw:false})
-
+    data_3 = YahooFinance.quotes(target_3,[:ask, :bid, :high, :low, :open, :close, :previous_close, :volume, :name],{raw:false})
+    data_4 = YahooFinance.quotes(target_4,[:ask, :bid, :high, :low, :open, :close, :previous_close, :volume, :name],{raw:false})
+    puts "data fetched"
+    
     data_1.each do |t|
       if t.ask != 0
-      stock << t
+        stock << t
       end
     end
-
     data_2.each do |t|
       if t.ask != 0
-      stock << t
+        stock << t
       end
     end
-
-    target_1.clear;target_2.clear;data_1.clear;data_2.clear
- 
-    (1101..5601).each do |t| target_1 << t.to_s+".TWO";end
-    (5602..9962).each do |t| target_2 << t.to_s+".TWO";end
-
-    data_1 = YahooFinance.quotes(target_1,[:ask, :bid, :high, :low, :open, :close, :previous_close, :volume, :name],{raw:false})
-    data_2 = YahooFinance.quotes(target_2,[:ask, :bid, :high, :low, :open, :close, :previous_close, :volume, :name],{raw:false})
-
-    data_1.each do |t|
+    data_3.each do |t|
       if t.ask != 0
-      stock << t
+        stock << t
       end
     end
-
-    data_2.each do |t|
+    data_4.each do |t|
       if t.ask != 0
-      stock << t
+        stock << t
       end
     end
+    put "stock saved"
   #目前 stock 獲得最新的所有資料，下面存入資料庫
+=begin
     if ItemTable.count == 0
       (0..stock.length).each do |i|
         item = ItemTable.new
@@ -89,7 +83,7 @@ module BuildStock
       (0..stock.length).each do |i|
         item[i].ask = stock[i].ask
         item[i].bid = stock[i].bid
-        item[i].prev_close = stock[i].preveious_close
+        item[i].prev_close = stock[i].previous_close
         item[i].name = stock[i].name
         item[i].high = stock[i].high
         item[i].low = stock[i].low
@@ -98,6 +92,19 @@ module BuildStock
         item[i].volume = stock[i].volume
         item[i].save
       end
+    end
+=end
+    puts "stock info:"
+    (0..stock.length).each do |i|
+      puts "stock[#{i}].ask=#{stock[i].ask}"
+      puts "stock[#{i}].bid=#{stock[i].bid}"
+      puts "stock[#{i}].name=#{stock[i].name}"
+      puts "stock[#{i}].prev_close=#{stock[i].previous_close}"
+      puts "stock[#{i}].high=#{stock[i].high}"
+      puts "stock[#{i}].low=#{stock[i].low}"
+      puts "stock[#{i}].open=#{stock[i].open}"
+      puts "stock[#{i}].close=#{stock[i].close}"
+      puts "stock[#{i}].volume=#{stock[i].volume}"
     end
   end
 end
