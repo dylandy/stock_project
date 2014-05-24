@@ -58,9 +58,11 @@ module BuildStock
         stock << t
       end
     end
-    put "stock saved"
+    puts "stock saved"
+
   #目前 stock 獲得最新的所有資料，下面存入資料庫
 =begin
+    puts "start saving db"
     if ItemTable.count == 0
       (0..stock.length).each do |i|
         item = ItemTable.new
@@ -93,9 +95,10 @@ module BuildStock
         item[i].save
       end
     end
+   puts "db saved"
 =end
     puts "stock info:"
-    (0..stock.length).each do |i|
+    (0..stock.length-1).each do |i|
       puts "stock[#{i}].ask=#{stock[i].ask}"
       puts "stock[#{i}].bid=#{stock[i].bid}"
       puts "stock[#{i}].name=#{stock[i].name}"
@@ -105,6 +108,7 @@ module BuildStock
       puts "stock[#{i}].open=#{stock[i].open}"
       puts "stock[#{i}].close=#{stock[i].close}"
       puts "stock[#{i}].volume=#{stock[i].volume}"
+      puts "stock[#{i}].symbol=#{stock[i].symbol}"
     end
   end
 end
