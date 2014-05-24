@@ -62,7 +62,7 @@ module BuildStock
   #目前 stock 獲得最新的所有資料，下面存入資料庫
 =begin
     if ItemTable.count == 0
-      (0..stock.length).each do |i|
+      (0..stock.length-1).each do |i|
         item = ItemTable.new
         item.id = i+1
         item.ask = stock[i].ask
@@ -80,7 +80,7 @@ module BuildStock
       end
     else
       item = ItemTable.all
-      (0..stock.length).each do |i|
+      (0..stock.length-1).each do |i|
         item[i].ask = stock[i].ask
         item[i].bid = stock[i].bid
         item[i].prev_close = stock[i].previous_close
@@ -95,7 +95,7 @@ module BuildStock
     end
 =end
     puts "stock info:"
-    (0..stock.length).each do |i|
+    (0..stock.length-1).each do |i|
       puts "stock[#{i}].ask=#{stock[i].ask}"
       puts "stock[#{i}].bid=#{stock[i].bid}"
       puts "stock[#{i}].name=#{stock[i].name}"
