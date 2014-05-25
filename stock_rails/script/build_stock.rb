@@ -9,7 +9,7 @@ module BuildStock
   DB_CONNECTION_SETTING = {
     adapter: "mysql2",
     encoding: "utf8",
-    database: "project_development",
+    database: "stock_rails_development",
     pool: 5,
     username: "root",
     password: '0000',
@@ -48,7 +48,6 @@ module BuildStock
     puts "stock saved"
 
   #目前 stock 獲得最新的所有資料，下面存入資料庫
-=begin
     puts "start saving db"
     if ItemTable.count == 0
       (0..stock.length-1).each do |i|
@@ -83,7 +82,7 @@ module BuildStock
       end
     end
    puts "db saved"
-=end
+=begin
     puts "stock info:"
     (0..stock.length-1).each do |i|
       puts "stock[#{i}].ask=#{stock[i].ask}"
@@ -97,6 +96,7 @@ module BuildStock
       puts "stock[#{i}].volume=#{stock[i].volume}"
       puts "stock[#{i}].symbol=#{stock[i].symbol}"
     end
+=end
   end
 end
 BuildStock.go!
