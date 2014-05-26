@@ -25,6 +25,7 @@ module BuildStock
     initialize()
     stock_filter()
   end
+
   def self.stock_filter
     target_1=[];target_2=[];target_3=[];target_4=[];data_1=[];data_2=[];data_3=[];data_4=[];stock =[]
     #create array for request 
