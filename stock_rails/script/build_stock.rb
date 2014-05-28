@@ -67,10 +67,11 @@ module BuildStock
         item.item_id = stock[i].symbol
         item.save
       end
-    elsif stock.length < ItemTable.count
+    else 
       item = ItemTable.all
       stock.each do |s|
         item.each do |i|
+	  flag = 0
           if i.item_id == s.symbol
             i.ask = s.ask
             i.bid = s.bid
@@ -82,16 +83,13 @@ module BuildStock
             i.close = s.close
             i.volume = s.volume  
             i.save
-            break
-          end         
-        end
-      end
-    elsif stock.length > ItemTable.count
-      item = ItemTable.all
-      stock.each do |s|
-        item.each do |i|
-          if i.item_id == s.symbol
-            i.ask = s.ask
+	    flag=1
+          elsif i.item_id != s.symbol && flag == 1
+	    continue
+	  else
+	    puts "inserting #{s.symbol} into db"
+	    i.id = item.last.id+1
+	    i.ask = s.ask
             i.bid = s.bid
             i.prev_close = s.previous_close
             i.name = s.name
@@ -99,12 +97,12 @@ module BuildStock
             i.low = s.low
             i.open = s.open
             i.close = s.close
-            i.volume = s.volume  
-            i.save
-            break
-          end
+            i.volume = s.volume
+	    i.item_id = s.symbol         
         end
       end
+   end
+=begin
     else
       item = ItemTable.all
       (0..stock.length-1).each do |i|
@@ -120,6 +118,7 @@ module BuildStock
         item[i].save
       end
     end
+=end
   end
 end
 BuildStock.go!
