@@ -67,6 +67,44 @@ module BuildStock
         item.item_id = stock[i].symbol
         item.save
       end
+    elsif stock.length < ItemTable.count
+      item = ItemTable.all
+      stock.each do |s|
+        item.each do |i|
+          if i.item_id == s.symbol
+            i.ask = s.ask
+            i.bid = s.bid
+            i.prev_close = s.previous_close
+            i.name = s.name
+            i.high = s.high
+            i.low = s.low
+            i.open = s.open
+            i.close = s.close
+            i.volume = s.volume  
+            i.save
+            break
+          end         
+        end
+      end
+    elsif stock.length > ItemTable.count
+      item = ItemTable.all
+      stock.each do |s|
+        item.each do |i|
+          if i.item_id == s.symbol
+            i.ask = s.ask
+            i.bid = s.bid
+            i.prev_close = s.previous_close
+            i.name = s.name
+            i.high = s.high
+            i.low = s.low
+            i.open = s.open
+            i.close = s.close
+            i.volume = s.volume  
+            i.save
+            break
+          end
+        end
+      end
     else
       item = ItemTable.all
       (0..stock.length-1).each do |i|
@@ -82,22 +120,6 @@ module BuildStock
         item[i].save
       end
     end
-   puts "db saved"
-=begin
-    puts "stock info:"
-    (0..stock.length-1).each do |i|
-      puts "stock[#{i}].ask=#{stock[i].ask}"
-      puts "stock[#{i}].bid=#{stock[i].bid}"
-      puts "stock[#{i}].name=#{stock[i].name}"
-      puts "stock[#{i}].prev_close=#{stock[i].previous_close}"
-      puts "stock[#{i}].high=#{stock[i].high}"
-      puts "stock[#{i}].low=#{stock[i].low}"
-      puts "stock[#{i}].open=#{stock[i].open}"
-      puts "stock[#{i}].close=#{stock[i].close}"
-      puts "stock[#{i}].volume=#{stock[i].volume}"
-      puts "stock[#{i}].symbol=#{stock[i].symbol}"
-    end
-=end
   end
 end
 BuildStock.go!
