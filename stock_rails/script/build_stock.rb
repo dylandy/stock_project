@@ -53,7 +53,6 @@ module BuildStock
     if ItemTable.count == 0
       (0..stock.length-1).each do |i|
         item = ItemTable.new
-        item.id = i+1
         item.ask = stock[i].ask
         item.prev_close = stock[i].previous_close
         item.name = stock[i].name
@@ -69,7 +68,7 @@ module BuildStock
       end
     else 
       item = ItemTable.all
-      stock.each do |s|
+      stock.each_with_index do |s , index|
         item.each do |i|
           if i.item_id == s.symbol
             i.ask = s.ask
@@ -82,43 +81,26 @@ module BuildStock
             i.close = s.close
             i.volume = s.volume  
             i.save
-            break
-	        else
-	          puts "inserting #{s.symbol} into db"
-      	    i.id = item.last.id+1
-	          i.ask = s.ask
-            i.bid = s.bid
-            i.prev_close = s.previous_close
-            i.name = s.name
-            i.high = s.high
-            i.low = s.low
-            i.open = s.open
-            i.close = s.close
-            i.volume = s.volume
-	          i.item_id = s.symbol         
-            i.save
+            stock.delete_at(index)
+          end
         end
       end
-   end
-  end
-=begin
-    else
-      item = ItemTable.all
-      (0..stock.length-1).each do |i|
-        item[i].ask = stock[i].ask
-        item[i].bid = stock[i].bid
-        item[i].prev_close = stock[i].previous_close
-        item[i].name = stock[i].name
-        item[i].high = stock[i].high
-        item[i].low = stock[i].low
-        item[i].open = stock[i].open
-        item[i].close = stock[i].close
-        item[i].volume = stock[i].volume
-        item[i].save
+      stock.each do |s|
+        item = ItemTable.new
+        item.ask = s.ask
+        item.prev_close = s.previous_close
+        item.name = s.name
+        item.high = s.high
+        item.low = s.low
+        item.open = s.open
+        item.close = s.close
+        item.volume = s.volume
+        item.ask = s.ask
+        item.bid = s.bid
+        item.item_id = s.symbol
+        item.save                              
       end
     end
-=end
-
   end
 end
 BuildStock.go!
