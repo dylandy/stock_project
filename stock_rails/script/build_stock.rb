@@ -81,24 +81,29 @@ module BuildStock
             i.close = s.close
             i.volume = s.volume  
             i.save
-            stock.delete_at(index)
+            s = 0
           end
         end
       end
       stock.each do |s|
-        item = ItemTable.new
-        item.ask = s.ask
-        item.prev_close = s.previous_close
-        item.name = s.name
-        item.high = s.high
-        item.low = s.low
-        item.open = s.open
-        item.close = s.close
-        item.volume = s.volume
-        item.ask = s.ask
-        item.bid = s.bid
-        item.item_id = s.symbol
-        item.save                              
+        if s != 0
+=begin
+          item = ItemTable.new
+          item.ask = s.ask
+          item.prev_close = s.previous_close
+          item.name = s.name
+          item.high = s.high
+          item.low = s.low
+          item.open = s.open
+          item.close = s.close
+          item.volume = s.volume
+          item.ask = s.ask
+          item.bid = s.bid
+          item.item_id = s.symbol
+          item.save                              
+=end
+          puts s.symbol
+        end
       end
     end
   end
