@@ -85,8 +85,6 @@ module BuildStock
           end
         end
       end
-      stock.each do |s|
-        if s != 0
 =begin
           item = ItemTable.new
           item.ask = s.ask
@@ -102,8 +100,10 @@ module BuildStock
           item.item_id = s.symbol
           item.save                              
 =end
-          puts s.symbol
-        end
+    end
+    stock.each do |s|
+      if s != 0
+        puts s
       end
     end
   end
