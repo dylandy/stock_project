@@ -2,11 +2,25 @@
   height:300px;
   width:450px;
   border-radius: 20px;
-  margin-left:200px;
-  margin-top:100px;
+  margin-left:100pt;
+  margin-top:50pt;
 }
 #superbig-title{
-  font-size:200px;
+  font-size:100pt;
   text-align:center;
   margin-top:50px;
+}
+.news-block{
+  margin: 30px auto;
+  width:80%;
+
+}
+.news{
+  background:white;
+  border-radius:10px;
+  height:300px;
+  width:auto;
+  padding:0 10px;
+  margin:0 10px;
+  float:left;
 }
