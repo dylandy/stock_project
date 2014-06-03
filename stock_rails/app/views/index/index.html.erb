@@ -15,14 +15,25 @@
   </div>
   <div class='news '>
     <h2>本日最大跌幅</h2><hr>
-    <table class='strape'></table>
+    <div>
+      <p><%= @most_decrease_name %>（<%= @most_decrease_id %>）</p>
+      <p>本日跌幅：<span style='color:green;font-weight:bold'><%= @most_decrease_percent %> ↓ </span></p>
+      <p>開盤價：<%= @most_decrease_open %>&nbsp;&nbsp;&nbsp;收盤價：<%= @most_decrease_close %></p>
+    </div>
   </div>
   <div class='news'>
     <h2>本日成交最高</h2><hr>
-    <table class='strape'></table>
+    <div>
+      <p><%= @most_close_name %>（<%= @most_close_id %>）</p>
+      <p>開盤價：<%= @most_close_open %>&nbsp;&nbsp;&nbsp;收盤價：<%= @most_close_close %></p>
+    </div>
   </div>
   <div class='news'>
     <h2>本日最大成交量</h2><hr>
-    <table class='strape'></table>
+    <div>
+      <p><%= @most_volume_name %>（<%= @most_volume_id %>）</p>
+      <p>成交量：<%= @most_volume_v %></p>
+      <p>開盤價：<%= @most_volume_open %>&nbsp;&nbsp;&nbsp;收盤價：<%= @most_volume_close %></p>
+    </div>
   </div>
 </div>
