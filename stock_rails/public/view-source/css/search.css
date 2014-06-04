@@ -1,0 +1,16 @@
+.search-title{
+  text-align:center;
+  font-size:30px;
+}
+#item-notfound{
+  text-align: center;
+  font-size:25px;
+}
+.box{
+  width:80%;
+  margin:0 auto;
+  background:white;
+  border-radius:10px;
+  text-align:center;
+  font-size:25px;
+}

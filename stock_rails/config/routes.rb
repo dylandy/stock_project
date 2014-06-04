@@ -53,11 +53,16 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :items
 
   resources :index do
     collection do
       get :search
     end
+    member do
+      get :item
+    end
   end
   root :to => "index#index"
+
 end

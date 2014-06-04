@@ -1,11 +1,14 @@
-<% if @item %>
-  <div id='search-title'>
+<% if !@item.empty? %>
+  <div class='search-title'>
     搜尋 <%= params[:s] %>
-  </div><hr/>
-  <%= @item.each do |item| %>
+  </div><hr style='width:85%;border:solid 2px'/>
     <div class='box'>
-      <%= @item.name %>（<%=item.item_id %>）<hr/><br/>
-      <%= @item.close %>
+      <%= @item.first.name.gsub!(/[^0-9A-Za-z.\- ]/, '') %>（<%= @item.first.item_id %>）<hr/>
+      <%= @item.first.close %>
     </div>
-  <% end %>
+<% else %>
+  <div class='search-title'>
+    搜尋 <%= params[:s] %>
+  </div><hr style='width:85%;border:solid 2px'/>
+  <h2 id='item-notfound'>很抱歉，您所搜尋的物件不存在</h2>
 <% end %>
