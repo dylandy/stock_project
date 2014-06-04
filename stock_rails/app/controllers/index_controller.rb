@@ -54,7 +54,16 @@ class IndexController < ApplicationController
 
   def search
     if param[:s]
-
+      sql = []
+      sql_source = []
+      params[:s].split(/ ,./).each do |keyword|
+        sql << "name LIKE ? OR item_id LIKE ?"
+        sql_source << "%#{keyword}%"
+        sql_source << "%#{keyword}%"
+      end
+      @item = @item.where(sql.join(' OR ') , *sql_source)
+    else
+        #no input
     end
   end
 end
