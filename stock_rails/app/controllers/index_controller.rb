@@ -1,7 +1,7 @@
 class IndexController < ApplicationController
 
   def item
-    @item = ItemTable.find(param[:item_id])
+    @item = ItemTable.find(params[:item_id])
   end
 
   def index
@@ -53,17 +53,19 @@ class IndexController < ApplicationController
   end
 
   def search
-    if param[:s]
-      sql = []
-      sql_source = []
-      params[:s].split(/ ,./).each do |keyword|
-        sql << "name LIKE ? OR item_id LIKE ?"
-        sql_source << "%#{keyword}%"
-        sql_source << "%#{keyword}%"
+    if @item
+      if params[:s]
+        sql = []
+        sql_source = []
+        params[:s].split(/ ,./).each do |keyword|
+          sql << "name LIKE ? OR item_id LIKE ?"
+          sql_source << "%#{keyword}%"
+          sql_source << "%#{keyword}%"
+        end
+        @item = @item.where(sql.join(' OR ') , *sql_source)
+      else
+          #no input
       end
-      @item = @item.where(sql.join(' OR ') , *sql_source)
-    else
-        #no input
     end
   end
 end

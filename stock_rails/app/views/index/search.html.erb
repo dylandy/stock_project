@@ -1,0 +1,11 @@
+<% if @item %>
+  <div id='search-title'>
+    搜尋 <%= params[:s] %>
+  </div><hr/>
+  <%= @item.each do |item| %>
+    <div class='box'>
+      <%= @item.name %>（<%=item.item_id %>）<hr/><br/>
+      <%= @item.close %>
+    </div>
+  <% end %>
+<% end %>
