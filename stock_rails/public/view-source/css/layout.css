@@ -4,3 +4,21 @@ html{
 .well{
   border:0;
 }
+footer{
+  background:#101010;
+  height:300px;
+  width:80%;
+  margin: 200px auto 0 auto;
+  border-radius:20px;
+}
+.footer-title{
+  background:#afafaf;
+  height:50px;
+  color:white;
+}
+.footer-title h2{
+  font-family: 'Ubuntu','Arial,sans-serif';
+  font-weight: bold;
+  text-indent:2em;
+  padding-top:5px;
+}
