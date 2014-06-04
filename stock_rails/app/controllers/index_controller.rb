@@ -1,4 +1,9 @@
 class IndexController < ApplicationController
+
+  def item
+    @item = ItemTable.find(param[:item_id])
+  end
+
   def index
     tmp = 0;tmp1 = 0;de = 0 ; de1 = 0
     item = ItemTable.all
@@ -45,5 +50,11 @@ class IndexController < ApplicationController
     @most_volume_v = ItemTable.order("volume desc").first.volume
     @most_volume_open = ItemTable.order("volume desc").first.open
     @most_volume_close = ItemTable.order("volume desc").first.close
+  end
+
+  def search
+    if param[:s]
+
+    end
   end
 end
