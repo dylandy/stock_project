@@ -1,6 +1,7 @@
 class SignController < ApplicationController
   def index
   end
+
   def check
     if !params[:account].empty?
       if !User.where(:account => params[:account]).empty? && User.where(:account => params[:account]).first.status != 1
@@ -21,4 +22,8 @@ class SignController < ApplicationController
       end
     end
   end
+
+  def show
+  end
+
 end
