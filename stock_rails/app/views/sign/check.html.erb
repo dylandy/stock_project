@@ -1,0 +1,14 @@
+<% if @checking == 1 %>
+  <div class="show">
+    您已經成功登入
+  </div>
+<% elsif @checking == 0 %>
+  <div class='show'>
+    登入失敗
+    <%= @checking.nil? %>
+  </div>
+<% else %>
+  <div class='show'>
+    您已經登入<%= @checking.nil? %>
+  </div>
+<% end %>

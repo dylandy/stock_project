@@ -65,7 +65,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sign
+  resources :sign do
+    collection do
+      post :check
+    end
+  end
   root :to => "index#index"
 
 end
