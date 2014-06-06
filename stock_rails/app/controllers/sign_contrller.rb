@@ -1,4 +1,4 @@
 class SignController < ApplicationController
-  def check
+  def index
   end
 end

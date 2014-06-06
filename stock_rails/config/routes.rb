@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   resources :items
+  resources :signs
 
   resources :index do
     collection do
