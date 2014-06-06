@@ -1,4 +1,0 @@
-<%= form_for @user do |f| %>
-  <%= f.textfield:account %>
-  <%= f.textfield:pwd %>
-<% end %>

@@ -65,13 +65,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sign do
-    collection do
-    end
-    member do
-      post :user
-    end
-  end
+  resources :sign
   root :to => "index#index"
 
 end
