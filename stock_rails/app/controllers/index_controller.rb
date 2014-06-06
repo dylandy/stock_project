@@ -40,16 +40,18 @@ class IndexController < ApplicationController
     @most_decrease_open = de1.open
     @most_decrease_close = de1.close
 
-    @most_close_name = ItemTable.order("close desc").first.name.gsub!(/[^0-9A-Za-z.\- ]/, '')
-    @most_close_id = ItemTable.order("close desc").first.item_id
-    @most_close_open = ItemTable.order("close desc").first.open
-    @most_close_close = ItemTable.order("close desc").first.close
+    most_close = ItemTable.order("close desc").first
+    @most_close_name = most_close.name.gsub!(/[^0-9A-Za-z.\- ]/, '')
+    @most_close_id = most_close.item_id
+    @most_close_open = most_close.open
+    @most_close_close = most_close.close
 
-    @most_volume_name = ItemTable.order("volume desc").first.name.gsub!(/[^0-9A-Za-z.\- ]/, '')
-    @most_volume_id = ItemTable.order("volume desc").first.item_id
-    @most_volume_v = ItemTable.order("volume desc").first.volume
-    @most_volume_open = ItemTable.order("volume desc").first.open
-    @most_volume_close = ItemTable.order("volume desc").first.close
+    mvolume = ItemTable.order("volume desc").first
+    @most_volume_name = mvolume.name.gsub!(/[^0-9A-Za-z.\- ]/, '')
+    @most_volume_id = mvolume.item_id
+    @most_volume_v = mvolume.volume
+    @most_volume_open = mvolume.open
+    @most_volume_close = mvolume.close
   end
 
   def search
