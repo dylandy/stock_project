@@ -4,7 +4,10 @@
   </div><hr style='width:85%;border:solid 2px'/>
     <div class='box'>
       <%= @item.first.name.gsub!(/[^0-9A-Za-z.\- ]/, '') %>（<%= @item.first.item_id %>）<hr/>
-      <%= @item.first.close %>
+      開盤價<%= @item.first.open %>&nbsp;&nbsp;&nbsp;&nbsp;收盤價<%= @item.first.close %><br>
+      高價 <%= @item.first.high%>&nbsp;&nbsp;&nbsp;&nbsp;低價<%=@item.first.low%><br>
+      委買<%= @item.first.bid%>&nbsp;&nbsp;&nbsp;&nbsp;委賣<%= @item.first.ask%><br>
+      成交量<%= @item.first.volume %>&nbsp;&nbsp;&nbsp;&nbsp;昨日收盤價<%= @item.first.prev_close %>
     </div>
 <% else %>
   <div class='search-title'>
