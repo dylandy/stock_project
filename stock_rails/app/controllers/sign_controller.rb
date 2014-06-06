@@ -1,7 +1,7 @@
 class SignController < ApplicationController
   def index
   end
-  def create
+  def check
     if User.where(:account => params[:account]) && User.where(:account => params[:account]).first.status != 1
       check = params[:pwd]
       check = Digest::SHA1.hexdigest check
@@ -10,9 +10,13 @@ class SignController < ApplicationController
         checker.status = 1
         checker.save
         @checking = 1
+      else
+        @checking = 0
       end
-    else
+    elsif User.where(:account => params[:account]).empty?
       @checking = 2
+    else
+      @checking = 3
     end
   end
 end

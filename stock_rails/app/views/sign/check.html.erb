@@ -1,14 +1,17 @@
 <% if @checking == 1 %>
-  <div class="show">
+  <p class="showing" id='success'>
     您已經成功登入
-  </div>
+  </p>
 <% elsif @checking == 0 %>
-  <div class='show'>
+  <p class='showing' id='fail'>
     登入失敗
-    <%= @checking.nil? %>
-  </div>
+  </p>
+<% elsif @checking == 2 %>
+  <p class='showing' id='warning'>
+    您的帳號不存在
+  </p>
 <% else %>
-  <div class='show'>
-    您已經登入<%= @checking.nil? %>
-  </div>
+  <p class='showing' id='already'>
+    您已經登入
+  </p>
 <% end %>
