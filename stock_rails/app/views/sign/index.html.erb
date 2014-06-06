@@ -1,6 +1,13 @@
 <div class='sign-in-box'>
-  <%= form_tag "/sign" do  %>
-    <%= text_field_tag :account %><br>
-    <%= text_field_tag :pwd %>
+  <%= form_tag "/sign" , :class => "input form-horizontal" , :role => "form" do  %>
+    <label class="control-label col-lg-4">帳號：</label>
+    <div class='col-lg-5'>
+      <input type="password" class="form-control" id="inputAccount" placeholder="Account">
+    </div>
+    <br><br>
+    <label class="control-label col-lg-4">密碼：</label>
+    <div class='col-lg-5'>
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+    </div>
   <% end %>
 </div>

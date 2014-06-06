@@ -5,3 +5,8 @@
   background:white;
   height: 200px;
 }
+.input{
+ /* text-align:center;*/
+  border-radius:2px;
+  padding-top: 40px;
+}
