@@ -1,18 +1,20 @@
-<h2>註冊</h2>
-
+<h2 style='text-align:center;margin-top:2em'>註冊</h2>
+<hr style='border: solid grey;width: 70%;border-radius: 1em;'>
+<div class='sign-in-pannal'>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :信箱 %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <div><%= f.label :信箱 %>
+    <%= f.email_field :email, autofocus: true , :class => 'form-control the-input' %></div>
 
-  <div><%= f.label :密碼 %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+  <div><%= f.label :密碼 %>
+    <%= f.password_field :password, autocomplete: "off" , :class => 'form-control the-input' %></div>
 
-  <div><%= f.label :確認密碼 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+  <div><%= f.label :確認密碼 %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" , :class => 'form-control the-input' %></div>
 
-  <div><%= f.submit "註冊" %></div>
+  <div><%= f.submit "註冊" , :class =>'btn btn-default'  %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
