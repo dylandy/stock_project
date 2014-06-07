@@ -66,13 +66,7 @@ Rails.application.routes.draw do
       get :item
     end
   end
-=begin
-  resources :sign do
-    collection do
-      post :check
-    end
-  end
-=end
+
   root :to => "index#index"
 
 end
