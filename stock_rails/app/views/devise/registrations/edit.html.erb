@@ -1,29 +1,31 @@
-<h2>修改我的帳號 <!--<%= resource_name.to_s.humanize %>--></h2>
-
+<h2 style='text-align:center;margin-top:3em'>修改我的帳號 <!--<%= resource_name.to_s.humanize %>--></h2>
+<hr style='border: solid grey;width: 70%;border-radius: 1em;'>
+<div class='sign-in-pannal'>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :信箱 %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <div><%= f.label :信箱 %>
+  <%= f.email_field :email, autofocus: true , :class => 'form-control the-input'%></div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>正在等待確認： <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div><%= f.label :密碼 %> <i>(若您不想變更，請留空白)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+  <div><%= f.label :密碼 %> <i>(若您不想變更，請留空白)</i>
+    <%= f.password_field :password, autocomplete: "off" , :class => 'form-control the-input' %></div>
 
-  <div><%= f.label :密碼確認 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+  <div><%= f.label :密碼確認 %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" , :class => 'form-control the-input' %></div>
 
-  <div><%= f.label :目前密碼 %> <i>(請輸入您的密碼以確認變更)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
+  <div><%= f.label :目前密碼 %> <i>(請輸入您的密碼以確認變更)</i>
+    <%= f.password_field :current_password, autocomplete: "off" , :class => 'form-control the-input' %></div>
 
-  <div><%= f.submit "變更" %></div>
+  <div><%= f.submit "變更"  , :class => 'btn btn-default' %></div>
 <% end %>
 
 <h3>刪除我的帳號</h3>
 
-<p>您想要刪除帳號嗎？<%= button_to "刪除我的帳號", registration_path(resource_name), data: { confirm: "確定？" }, method: :delete %></p>
+<p>您想要刪除帳號嗎？<%= button_to "刪除我的帳號", registration_path(resource_name), data: { confirm: "確定？" }, method: :delete , :class => 'btn btn-danger' %></p>
 
-<%= link_to "上一頁", :back %>
+<%= link_to "上一頁", :back  %>
+</div>

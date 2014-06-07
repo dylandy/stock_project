@@ -1,6 +1,19 @@
 html{
   font-family:'Microsoft YaHei' , 'Ubuntu' , '文泉驛微米黑','黑體-繁';
 }
+.navbar-collapse .navbar-text:last-child{
+  margin-right: 20px;
+}
+.navbar:before{
+  display: none;
+}
+#the-nav{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  border-radius: 0;
+}
 .well{
   border:0;
 }
