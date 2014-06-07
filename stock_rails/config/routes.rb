@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -64,12 +65,13 @@ Rails.application.routes.draw do
       get :item
     end
   end
-
+=begin
   resources :sign do
     collection do
       post :check
     end
   end
+=end
   root :to => "index#index"
 
 end
