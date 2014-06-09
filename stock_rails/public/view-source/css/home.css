@@ -4,3 +4,12 @@
   text-align: center;
   color:black;
 }
+
+.add-stock {
+  width:30%;
+  font-size:50px;
+}
+
+#adding:hover {
+  text-decoration:none;
+}
