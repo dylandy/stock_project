@@ -85,25 +85,10 @@ module BuildStock
           end
         end
       end
-=begin
-          item = ItemTable.new
-          item.ask = s.ask
-          item.prev_close = s.previous_close
-          item.name = s.name
-          item.high = s.high
-          item.low = s.low
-          item.open = s.open
-          item.close = s.close
-          item.volume = s.volume
-          item.ask = s.ask
-          item.bid = s.bid
-          item.item_id = s.symbol
-          item.save                              
-=end
-    end
-    stock.each do |s|
-      if s != 0
-        puts s
+      stock.each do |s|
+        if s != 0
+          puts s
+        end
       end
     end
   end

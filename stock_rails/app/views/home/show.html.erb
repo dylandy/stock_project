@@ -1,0 +1,8 @@
+<h2 id='home-title'><%= current_user.email %> 的股票庫 </h2>
+<hr style='width:80%;border:solid 5px;border-radius:5px'>
+<% @user_item.each do |u| %>
+  <div class='box'>
+    <h3><%= u.name %></h3><hr>
+    <p><%= u.close %></p>
+  </div>
+<% end %>

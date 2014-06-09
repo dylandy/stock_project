@@ -59,6 +59,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   resources :items
+  resources :home
 
   resources :index do
     collection do
