@@ -67,7 +67,7 @@ Rails.application.routes.draw do
 
   resources :index do
     collection do
-      get 'search' , to: :show
+      get :search
     end
     member do
       get :item

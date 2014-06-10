@@ -3,13 +3,14 @@
 <ul class='selection'>
 <% if !@user_item.empty? %>
   <% @user_item.each do |u| %>
-    <li class='box'>
-      <h3><%= u.name %></h3><hr>
-      <p><%= u.close %></p>
+    <li class='box show-my-stock'>
+      <h3><%= u.name.gsub!(/[^0-9A-Za-z.\- ]/, '') %></h3><hr>
+      <p>收盤價：<%= u.close %></p>
     </li>
   <% end %>
 <% else %>
 <h3 style='text-align:center'>目前還沒有我的股票</h3>
+<% end %>
   <a href='#' class='template'><li class='box add-stock' >+</li></a>
 </ul>
 <div class='searching-box'>
@@ -18,5 +19,5 @@
     <button type='submit' class='btn btn-primary' id='add-submit' >添加到我的選單</button>
   <% end %>
 </div>
-<% end %>
+
 
