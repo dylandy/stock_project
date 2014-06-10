@@ -59,11 +59,15 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   resources :items
-  resources :home
+  resources :home do
+    member do
+      get :search
+    end
+  end
 
   resources :index do
     collection do
-      get :search
+      get 'search' , to: :show
     end
     member do
       get :item
