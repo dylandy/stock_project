@@ -14,10 +14,12 @@
   <a href='#' class='template'><li class='box add-stock' >+</li></a>
 </ul>
 <div class='searching-box'>
-  <%= form_tag "/home/search/" , :role => 'search' , :method => 'get' do %>
+  <h3 id='add-title'>新增</h3><hr>
+  <%= form_tag url_for(:action =>'search') , :role => 'search' , :method => 'get' do %>
     <input type="text" class="form-control" id='add-input' placeholder='股票代號 / 公司名稱' name='search'/>
     <button type='submit' class='btn btn-primary' id='add-submit' >添加到我的選單</button>
   <% end %>
+  <%= @hi %>
 </div>
 
 

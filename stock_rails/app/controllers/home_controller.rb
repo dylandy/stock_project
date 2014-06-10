@@ -15,10 +15,27 @@ class HomeController < ApplicationController
     output=[]
     if !params[:search].nil?
       if ItemTable.where(:item_id => params[:search]).empty?
-        output << ItemTable.where(:name => params[:search].dump).first.id
+        Selection.where(:userid => current_user.id).all.each do |i|
+          if i.itemid ==  ItemTable.where(:name => params[:search].dump).first.id
+            puts "item already exists"
+            params[:search] = nil
+          end
+        end
+        if !ItemTable.where(:name => params[:search].dump).first.nil?
+          output << ItemTable.where(:name => params[:search].dump).first.id
+        end
       else
+      Selection.where(:userid => current_user.id).all.each do |i|
+        if i.itemid ==  ItemTable.where(:item_id => params[:search]).first.id
+          puts "item already exists"
+          params[:search] = nil
+        end
+      end
+      if !ItemTable.where(:item_id => params[:search]).first.nil?
         output << ItemTable.where(:item_id => params[:search]).first.id
       end
+      end
+    else
     end
     output.each do |o|
       sl = Selection.new
