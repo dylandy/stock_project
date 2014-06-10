@@ -10,11 +10,9 @@
   font-size:50px;
   margin-top:10px;
 }
-
-#adding:hover {
-  text-decoration:none;
-}
-
 .template {
   display: none;
+}
+.add-stock:hover{
+  text-decoration: none;
 }

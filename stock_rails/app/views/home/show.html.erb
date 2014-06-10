@@ -1,7 +1,7 @@
 <h2 id='home-title'><%= current_user.email %> 的股票庫 </h2>
 <hr style='width:80%;border:solid 5px;border-radius:5px'>
 <ul class='selection'>
-<% if !@user_item.nil? %> <!-- 這邊之後要改成 empty? 先測試後面的東西 -->
+<% if !@user_item.empty? %>
   <% @user_item.each do |u| %>
     <li class='box'>
       <h3><%= u.name %></h3><hr>
@@ -10,7 +10,7 @@
   <% end %>
 <% else %>
 <h3 style='text-align:center'>目前還沒有我的股票</h3>
-  <a href='#' id='adding' class='template'><li class='box add-stock' >+</li></a>
+  <a href='#' class='template'><li class='box add-stock' >+</li></a>
 </ul>
 <% end %>
 
