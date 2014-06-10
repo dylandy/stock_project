@@ -16,3 +16,24 @@
 .add-stock:hover{
   text-decoration: none;
 }
+
+.searching-box {
+  display:none;
+  width: 40%;
+  background: white;
+  border-radius:10px;
+  margin:0 auto;
+  height:150px;
+  padding-top:25px;
+}
+
+#add-submit {
+  display: block;
+  margin:0 auto;
+}
+
+#add-input {
+  width: 40%;
+  margin: 10px auto;
+
+}
