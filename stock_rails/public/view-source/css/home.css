@@ -8,8 +8,13 @@
 .add-stock {
   width:30%;
   font-size:50px;
+  margin-top:10px;
 }
 
 #adding:hover {
   text-decoration:none;
+}
+
+.template {
+  display: none;
 }
