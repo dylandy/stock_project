@@ -62,6 +62,7 @@ Rails.application.routes.draw do
   resources :home do
     member do
       get :search
+      post :destory
     end
   end
 

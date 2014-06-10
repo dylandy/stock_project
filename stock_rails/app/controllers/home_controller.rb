@@ -46,4 +46,10 @@ class HomeController < ApplicationController
     end
   redirect_to :back
   end
+  def destory
+    session[:return_to] = request.referer
+    del = Selection.where(:itemid => params[:u]).first
+    del.delete
+    redirect_to :back
+  end
 end
