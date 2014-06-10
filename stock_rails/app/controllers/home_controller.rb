@@ -12,6 +12,7 @@ class HomeController < ApplicationController
     end
   end
   def search
+    session[:return_to] = request.referer
     output=[]
     if !params[:search].nil?
       if ItemTable.where(:item_id => params[:search]).empty?
@@ -43,5 +44,6 @@ class HomeController < ApplicationController
       sl.itemid = o
       sl.save
     end
+  redirect_to :back
   end
 end
