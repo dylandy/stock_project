@@ -19,6 +19,7 @@ module BuildStock
   def self.initialize
     ActiveRecord::Base.logger = Logger.new(STDOUT)
     ActiveRecord::Base.establish_connection(DB_CONNECTION_SETTING)
+    ActiveRecord::Base.connection.execute("TRUNCATE item_tables")
   end
 
   def self.go!
@@ -66,31 +67,7 @@ module BuildStock
         item.item_id = stock[i].symbol
         item.save
       end
-    else 
-      item = ItemTable.all
-      stock.each_with_index do |s , index|
-        item.each do |i|
-          if i.item_id == s.symbol
-            i.ask = s.ask
-            i.bid = s.bid
-            i.prev_close = s.previous_close
-            i.name = s.name
-            i.high = s.high
-            i.low = s.low
-            i.open = s.open
-            i.close = s.close
-            i.volume = s.volume  
-            i.save
-            s = 0
-          end
-        end
-      end
-      stock.each do |s|
-        if s != 0
-          puts s
-        end
       end
     end
   end
-end
 BuildStock.go!

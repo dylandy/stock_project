@@ -11,6 +11,7 @@ class HomeController < ApplicationController
       @user_item << ItemTable.where(:id => f).first
     end
   end
+
   def search
     session[:return_to] = request.referer
     output=[]
@@ -37,6 +38,7 @@ class HomeController < ApplicationController
       end
       end
     else
+      #can't find
     end
     output.each do |o|
       sl = Selection.new
@@ -46,6 +48,7 @@ class HomeController < ApplicationController
     end
   redirect_to :back
   end
+
   def destory
     session[:return_to] = request.referer
     del = Selection.where(:itemid => params[:u]).first
