@@ -19,6 +19,7 @@ module BuildStock
   def self.initialize
     ActiveRecord::Base.logger = Logger.new(STDOUT)
     ActiveRecord::Base.establish_connection(DB_CONNECTION_SETTING)
+    puts "rebuilding item_table"
     ActiveRecord::Base.connection.execute("TRUNCATE item_tables")
   end
 
