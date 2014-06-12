@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!
   def show
     find_stock=[]
     user_item_info = Selection.where(:userid => current_user.id).all

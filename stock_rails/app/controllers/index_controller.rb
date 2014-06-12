@@ -1,5 +1,5 @@
 class IndexController < ApplicationController
-
+  before_action :authenticate_user! , except: [ :index , :search ]
   def item
     @item = ItemTable.find(params[:item_id])
   end
