@@ -35,3 +35,12 @@ footer{
   text-indent:2em;
   padding-top:5px;
 }
+.footer-content{
+  color:white;
+}
+footer li{
+  color:white;
+}
+#the-left{
+  margin-left:15%;
+}
