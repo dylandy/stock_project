@@ -3,11 +3,13 @@
 <ul class='selection'>
 <% if !@user_item.empty? %>
   <% @user_item.each do |u| %>
-    <li class='box show-my-stock'>
-      <h3><%= u.name.gsub!(/[^0-9A-Za-z.\- ]/, '') %>（<%= u.item_id %>）</h3><hr>
-      <p>收盤價：<%= u.close %></p>
-      <%= button_to("刪除" , {:action => 'destory' , :u => u.id } , :class => "btn btn-danger") %>
-    </li>
+    <a href='/index/search/#{u}'>
+      <li class='box show-my-stock'>
+        <h3><%= u.name.gsub!(/[^0-9A-Za-z.\- ]/, '') %>（<%= u.item_id %>）</h3><hr>
+        <p>收盤價：<%= u.close %></p>
+        <%= button_to("刪除" , {:action => 'destory' , :u => u.id } , :class => "btn btn-danger") %>
+      </li>
+    </a>
   <% end %>
 <% else %>
 <h3 style='text-align:center'>目前還沒有我的股票</h3>
