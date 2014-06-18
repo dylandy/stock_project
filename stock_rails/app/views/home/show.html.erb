@@ -1,7 +1,7 @@
 <h2 id='home-title'><%= current_user.email %> 的股票庫 </h2>
 <hr style='width:80%;border:solid 5px;border-radius:5px'>
 <ul class='selection'>
-<% if !@user_item.empty? %>
+<% unless @user_item.empty? %>
   <% @user_item.each do |u| %>
       <li class='box show-my-stock' onclick='location.href="/index/search?s=<%= u.item_id %>"' style='cursor:pointer'>
           <h3><%= u.name.gsub!(/[^0-9A-Za-z.\- ]/, '') %>（<%= u.item_id %>）</h3><hr>

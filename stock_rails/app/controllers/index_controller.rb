@@ -55,7 +55,7 @@ class IndexController < ApplicationController
   end
 
   def search
-    if !params[:s].nil?
+    unless params[:s].nil?
       if ItemTable.where(:item_id => params[:s]).empty?
         @item = ItemTable.where(:name => params[:s].dump)
       else

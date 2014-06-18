@@ -16,7 +16,7 @@ class HomeController < ApplicationController
   def search
     session[:return_to] = request.referer
     output=[]
-    if !params[:search].nil?
+    unless params[:search].nil?
       if ItemTable.where(:item_id => params[:search]).empty?
         Selection.where(:userid => current_user.id).all.each do |i|
           if i.itemid ==  ItemTable.where(:name => params[:search].dump).first.id
@@ -24,7 +24,7 @@ class HomeController < ApplicationController
             params[:search] = nil
           end
         end
-        if !ItemTable.where(:name => params[:search].dump).first.nil?
+        unless ItemTable.where(:name => params[:search].dump).first.nil?
           output << ItemTable.where(:name => params[:search].dump).first.id
         end
       else
@@ -34,7 +34,7 @@ class HomeController < ApplicationController
           params[:search] = nil
         end
       end
-      if !ItemTable.where(:item_id => params[:search]).first.nil?
+      unless ItemTable.where(:item_id => params[:search]).first.nil?
         output << ItemTable.where(:item_id => params[:search]).first.id
       end
       end
