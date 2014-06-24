@@ -10,33 +10,33 @@ class IndexController < ApplicationController
 
     item.each do |i|
       if tmp == 0
-        tmp = i.close / i.prev_close
+        tmp = i.close / i.prev_close - 1
         tmp1 = i
-      elsif tmp < i.close / i.prev_close
-        tmp = i.close / i.prev_close
+      elsif tmp < i.close / i.prev_close - 1
+        tmp = i.close / i.prev_close - 1
         tmp1 = i
       end
     end
 
     item.each do |i|
       if de == 0
-        de = i.close / i.prev_close
+        de = i.close / i.prev_close - 1
         de1 = i
-      elsif de > i.close / i.prev_close
-        de = i.close / i.prev_close
+      elsif de > i.close / i.prev_close - 1
+        de = i.close / i.prev_close - 1
         de1 = i
       end
     end
 
     @most_grow_name = tmp1.name.gsub!(/[^0-9A-Za-z.\- ]/, '')
     @most_grow_id = tmp1.item_id
-    @most_grow_percent = (tmp*100).round.to_f / 100
+    @most_grow_percent = (tmp*100).round.to_f
     @most_grow_open = tmp1.open
     @most_grow_close = tmp1.close
 
     @most_decrease_name = de1.name.gsub!(/[^0-9A-Za-z.\- ]/, '')
     @most_decrease_id = de1.item_id
-    @most_decrease_percent = (de*100).round.to_f / 100
+    @most_decrease_percent = (de*100).round.to_f
     @most_decrease_open = de1.open
     @most_decrease_close = de1.close
 
