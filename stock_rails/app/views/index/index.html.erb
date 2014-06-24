@@ -11,7 +11,7 @@
     <h2>本日最大漲幅</h2><hr>
     <div>
       <p><%= @most_grow_name %>（<%= @most_grow_id %>）</p>
-      <p>本日漲幅：<span style='color:red;font-weight:bold'><%= @most_grow_percent %> ↑ </span></p>
+      <p>本日漲幅：<span style='color:red;font-weight:bold'><%= @most_grow_percent %>% ↑ </span></p>
       <p>開盤價：<%= @most_grow_open %>&nbsp;&nbsp;&nbsp;收盤價：<%= @most_grow_close %></p>
     </div>
   </div>
@@ -19,7 +19,7 @@
     <h2>本日最大跌幅</h2><hr>
     <div>
       <p><%= @most_decrease_name %>（<%= @most_decrease_id %>）</p>
-      <p>本日跌幅：<span style='color:green;font-weight:bold'><%= @most_decrease_percent %> ↓ </span></p>
+      <p>本日跌幅：<span style='color:green;font-weight:bold'><%= @most_decrease_percent %>% ↓ </span></p>
       <p>開盤價：<%= @most_decrease_open %>&nbsp;&nbsp;&nbsp;收盤價：<%= @most_decrease_close %></p>
     </div>
   </div>
