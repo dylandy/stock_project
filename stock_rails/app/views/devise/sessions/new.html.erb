@@ -1,11 +1,11 @@
 <h2 style='text-align:center;margin-top:3em'>登入</h2><hr style='border: solid grey;width: 70%;border-radius: 1em;'>
 <div class='sign-in-pannal'>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :信箱 %><br />
-  <%= f.email_field :email, autofocus: true  , :class => 'form-control the-input'%></div>
+  <div><%= f.label :電子信箱 %><br />
+    <%= f.email_field :email, autofocus: true  , :class => 'form-control the-input' , :placeholder => "此為登入帳號" %></div>
 
   <div><%= f.label :密碼 %><br />
-    <%= f.password_field :password, autocomplete: "off",:class => 'form-control the-input' %></div>
+    <%= f.password_field :password, autocomplete: "off",:class => 'form-control the-input' , :placeholder => "請輸入 8 個位元以上" %></div>
 
   <% if devise_mapping.rememberable? -%>
     <div><%= f.check_box :remember_me %> <%= f.label :記住我 %></div>
