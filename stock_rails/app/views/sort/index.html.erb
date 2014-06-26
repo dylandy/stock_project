@@ -1,0 +1,26 @@
+<table class='table table-striped' style="margin-top:100px">
+ <tbody>
+  <tr>
+   <td><a href=#>名稱</a></td> 
+<td><%= link_to("開盤價" , '/sort/SortByOpen' ) %></td>   
+
+<td><%= link_to("收盤價" , '/sort/SortByClose' ) %></td>   
+
+<td><%= link_to("成交量" , '/sort/SortByVolume' ) %></td>  
+
+   <!--
+   <td><a href=#>漲幅</a></td> 
+   <td><a href=#>跌幅</a></td>
+   --> 
+  </tr>
+
+ <% @sort.each do |i| %>	   
+  <tr>
+   <td><%= i.name %></td>
+   <td><%= i.open %></td>
+   <td><%= i.close %></td>
+   <td><%= i.volume %></td>
+  </tr>
+ <%end%>
+ </tbody>
+</table>

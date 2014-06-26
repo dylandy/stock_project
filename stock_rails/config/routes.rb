@@ -74,7 +74,16 @@ Rails.application.routes.draw do
       get :item
     end
   end
-
+ 
+ resources :sort do
+    collection do
+       get :SortByOpen
+       get :SortByClose
+       get :SortByVolume
+       get :SortByUp
+       get :SortByDown
+    end
+ end
 
 
 end
