@@ -1,16 +1,41 @@
 stock_project
 =============
 
-A database practicing project
+##System Require
 
+* Ruby - 2.1.1
+* Rails - 4.1
+* MySQL >=  5.5
+* Unix-like system
+* NetWork
 
----
-在修改程式之前，請先注意以下幾點
+##Deploy Infomation
 
-1. 修改 config/database.yml 的 mysql 帳號密碼成為你機器上的帳號密碼
-2. 在 stock_rails 資料夾裡下 bundle install 指令，把需要的 gem 安裝好，如果有缺什麼 gem 的話，要先裝好
-3. 建立資料庫：在 stock_rails 資料夾的根目錄下 rake db:create 指令
-4. 建立 table ，在 stock_rails 資料夾的根目錄下 rake db:migrate 指令
-5. 到 stock_rails/script 資料夾下執行 ruby build_stock.rb 的指令，建立所需的資料庫內容
+* 修改 stock_project/stock_rails/config/database.yml 以連結到資料庫
+* 在 stock_project/stock_rails/config/initialize/ 加入 secret tocken ( rake secret) 
+* 安裝所需的 gem ( bundle install )
+* 建立資料庫 ( rake db:create && rake db:migrate )
+* 抓取即時股價並存入資料庫 ( 執行 stock_project/stock_rails/script/build_stock.rb )
+* 使用系統 crontab 將 stock_project/stock_rails/script/build_stock.rb 設定為上班日早上九點到下午一點，整點更新
+* 若要測試系統，請使用 rails server 開啟伺服器
+* 若要將系統正式上線請使用 gem install passenger 利用 nginx 來將系統上線
 
-##請特別注意 issue tracker 中的訊息
+##資料來源
+* Yahoo Finance API 雅虎財經 API
+
+##所用外部 Lib
+* Twitter Bootstrap 3.0
+* jQuery 1.8.2
+* Devise
+
+##測試
+本專案在以下平台測試成功
+
+* Ubuntu Linux 13.04 Server x64
+* Ubuntu Linux 14.04 Desktop x64
+* Mac OSX 10.09 
+
+##License
+
+本專案透過 MIT Open Source License 釋出
+如需使用本專案，請在專案中提出有使用本專案。
