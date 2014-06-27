@@ -1,5 +1,6 @@
-stock_project
+自己的股票自已選
 =============
+想要有自己私人的股票查詢系統嗎？
 
 ##System Require
 
